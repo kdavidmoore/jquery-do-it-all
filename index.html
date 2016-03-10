@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+    <head>
+        <title>jQuery 101</title>
+        <!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+		<script type="text/javascript">
+			// callback -- waits until DOM is loaded, then runs the self-invoking function function()
+			$(document).ready(function() {
+				var that = $('.thing'); 
+				// when the DOM is loaded, we bind the event listener click() on the 'hide' button
+				$('button').click(function() {
+					var theTrick = $(this).attr('todo'); // gets the 'todo' attribute of the button being clicked
+					console.log(this);
+					if (theTrick === 'hide') {
+						that.hide(); // if the 'todo' attribute of the button being clicked is 'hide', it hides the 'Do Something' button (which has class 'thing')
+					} else if (theTrick === 'show') {
+						that.show();
+					} else if (theTrick === 'toggle') {
+						that.toggle();
+					} else if (theTrick === 'html') {
+						that.html('<table border="2"><tr><td>Look at me, I\'m a row.</td></tr></table>');
+					} else if (theTrick === 'append') {
+						that.append('<div class="purple">I have a friend now.</div>');
+					} else if (theTrick === 'css') {
+						$('.thing').css({
+							'color': 'orange',
+							'font-size': '30px'
+						});
+					} else if (theTrick === 'text') {
+						that.text('Just some new text.'); // replaces all the text in .thing
+					} else if (theTrick === 'each') {
+						$('button').each(function() {
+							console.log($(this).text()); // runs a for-each loop that logs the value of each button when the 'each' button is clicked
+						});
+					}
+				});
+			});
+		
+		</script>
+		<style>
+			.row {
+				margin-bottom: 5%;
+			}
+			.btn{
+				padding: 10px 20px; 
+			}
+			.purple {
+				color: purple; 
+			}
+		</style>
+    </head>
+    <body>
+    <div class="container">
+	    <div class="row">
+		    <div class="col-sm-3 text-center">
+			    <button class="btn btn-primary" todo="hide">Hide</button>
+			</div>
+			<div class="col-sm-3 text-center">
+			    <button class="btn btn-primary" todo="show">Show</button>
+			</div>
+			<div class="col-sm-3 text-center">
+			    <button class="btn btn-primary" todo="toggle">Toggle</button>
+			</div>
+			<div class="col-sm-3 text-center">
+			    <button class="btn btn-primary" todo="html">HTML</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 text-center">
+			    <button class="btn btn-primary" todo="append">Append</button>
+			</div>
+			<div class="col-sm-3 text-center">
+			    <button class="btn btn-primary" todo="css">CSS</button>
+			</div>
+			<div class="col-sm-3 text-center">
+			    <button class="btn btn-primary" todo="text">Text</button>
+			</div>
+			<div class="col-sm-3 text-center">
+			    <button class="btn btn-primary" todo="each">Each</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 text-center">
+				<button class="btn btn-primary" todo="addClass">Add Class</button>
+			</div>
+			<div class="col-sm-3 text-center">
+				<button class="btn btn-primary" todo="removeClass">Remove Class</button>
+			</div>
+			<div class="col-sm-3 text-center">
+				<button class="btn btn-primary" todo="animate">Animate</button>
+			</div>
+			<div class="col-sm-3 text-center">
+				<button class="btn btn-primary" todo="delay">Delay</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3 text-center">
+				<button class="btn btn-primary" todo="slice">Slice</button>
+			</div>
+			<div class="col-sm-3 text-center">
+				<button class="btn btn-primary" todo="fade">Fade</button>
+			</div>
+			<div class="col-sm-3 text-center">
+				<button class="btn btn-primary" todo="fadeIn">Fade In</button>
+			</div>
+			<div class="col-sm-3 text-center">
+				<button class="btn btn-primary" todo="prepend">Prepend</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<button class="btn btn-primary" todo="val">Val</button>
+			</div>
+		</div>
+	    <div class="row">
+	    	<div class="col-sm-12 text-center">
+			    <button class="btn btn-success thing" id="thing">Do Something</button>
+			</div>
+		</div>
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </body>
+</html>
