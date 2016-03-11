@@ -35,7 +35,7 @@
 						that.text('Just some new text.'); // replaces all the text in .thing
 					} else if (theTrick === 'each') {
 						$('button').each(function() {
-							console.log($(this).text()); // runs a for-each loop that logs the value of each button when the 'each' button is clicked
+							console.log($(this).text()); // runs a for-each loop that logs the text of each button when the 'each' button is clicked
 						});
 					} else if (theTrick === 'addClass') {
 						that.addClass('fancy');
@@ -43,22 +43,22 @@
 						that.removeClass('fancy');
 					} else if (theTrick === 'animate') {
 						that.animate({
-							opacity: 1,
-							left: '+=50',
 							height: 'toggle'
 						});
 					} else if (theTrick === 'delay') {
-						that.delay(10000).addClass('fancy');
+						that.delay(5000).fadeTo("fast", 0.5);
 					} else if (theTrick === 'slice') {
-						console.log([5,4,3,2].slice(1,3));
+						var sliced = [5,4,3,2].slice(1,3);
+						that.text("You sliced " + sliced);
 					} else if (theTrick === 'fadeOut') {
 						that.fadeOut("slow");
 					} else if (theTrick === 'fadeIn') {
 						that.fadeIn("slow");
 					} else if (theTrick === 'prepend') {
-						that.prepend('This is extra text. ');
+						that.prepend('<div class="yellow">I tacked on some extra text.</div>');
 					} else if (theTrick === 'val') {
-						$(this).val();
+						that.val("check out my new value");
+						console.log("Printing my value: " + that.val());
 					}
 				});
 			});
@@ -73,6 +73,9 @@
 			}
 			.purple {
 				color: purple; 
+			}
+			.yellow {
+				color: yellow;
 			}
 			.fancy {
 				font-family: Cursive;
